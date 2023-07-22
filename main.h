@@ -12,7 +12,7 @@ int _printf(const char *format, ...);
 
 /* struct */
 struct convert_match {
-        char *tag;
+        const char *tag;
         int (*f)(va_list);
 };
 
