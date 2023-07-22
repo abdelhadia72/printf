@@ -19,13 +19,11 @@ int printf_binary(va_list list)
 		binary_digits[i] = num & 1;
 		num >>= 1;
 	}
-
 	j = sizeof(unsigned int) * 8 - 1;
 	while (j >= 0 && binary_digits[j] == 0)
 	{
 		j--;
 	}
-	
 	for (; j >= 0; j--)
 	{
 		_putchar(binary_digits[j] + '0');
