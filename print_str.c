@@ -9,16 +9,17 @@
 
 int printf_string(va_list list)
 {
-	const char *str = va_arg(list, const char*);
-	int len;
+    const char *str = va_arg(list, const char*);
 
-	len = 0;
+	int num;
+	
+	num = 0;
 
-	while (*str)
-	{
-		putchar(*str);
-		str++;
-		len++;
-	}
-	return (len);
+    while (*str)
+    {
+        putchar(*str);
+        str++;
+        num++;
+    }
+    return (num);
 }
