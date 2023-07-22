@@ -8,7 +8,8 @@
 
 int printf_percent(va_list list)
 {
-	putchar('%');
-	putchar('\n');
+	(void)list;
+	_putchar('%');
+	_putchar('\n');
 	return (1);
 }

@@ -11,6 +11,6 @@ int printf_char(va_list list)
 
 	c = va_arg(list, int);
 
-	putchar(c);
+	_putchar(c);
 	return (1);
 }
