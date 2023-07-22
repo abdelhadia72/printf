@@ -3,6 +3,7 @@
 int printf_char(va_list list);
 int printf_string(va_list list);
 int printf_percent(va_list list);
+int printf_decimal(va_list list);
 
 int _printf(const char *format, ...) {
     va_list list;
@@ -13,6 +14,8 @@ int _printf(const char *format, ...) {
         {"c", printf_char},
         {"s", printf_string},
         {"%", printf_percent},
+        {"d", printf_decimal},
+        {"i", printf_decimal},
         {NULL, NULL},
     };
 

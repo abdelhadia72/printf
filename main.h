@@ -21,6 +21,7 @@ struct convert_match {
 int printf_percent(va_list list);
 int printf_string(va_list list);
 int printf_char(va_list list);
+int printf_decimal(va_list list);
 
 /* helper funtions */
 int _putchar(char c);
