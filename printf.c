@@ -12,25 +12,25 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
-
-	va_start(list, format);
-	int pr_chars = 0;
+	int pr_chars;
+	int i = 0;
+	int j;
 	struct convert_match m[] = {
 		{"c", printf_char},
 		{"s", printf_string},
 		{"%", printf_percent},
-		{"d", printf_decimal},
-		{"i", printf_decimal},
 		{NULL, NULL},
 	};
-	int i = 0;
+	pr_chars = 0;
 
+	va_start(list, format);
+	
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			int j = 0;
+			j = 0;
 
 			while (m[j].tag)
 			{

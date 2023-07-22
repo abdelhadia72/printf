@@ -12,6 +12,10 @@ int printf_decimal(va_list list)
 	int num = va_arg(list, int);
 	int count = 0;
 	int is_negative = 0;
+	int num_digits;
+	int temp;
+	int divisor;
+	int i;
 
 	if (num == 0)
 	{
@@ -27,17 +31,20 @@ int printf_decimal(va_list list)
 		count++;
 	}
 
-	int num_digits = 0;
-	int temp = num;
+	/* int num_digits; */
+	num_digits = 0;
+	int temp;
+	/* temp = num; */
 
 	while (temp)
 	{
 		temp /= 10;
 		num_digits++;
 	}
-	int divisor = 1;
+	/* int divisor; */
+	divisor = 1;
 
-	for (int i = 1; i < num_digits; i++)
+	for (i = 1; i < num_digits; i++)
 		divisor *= 10;
 	while (divisor)
 	{
