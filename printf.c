@@ -1,49 +1,54 @@
 #include "main.h"
 
-int printf_char(va_list list);
-int printf_string(va_list list);
-int printf_percent(va_list list);
-int printf_decimal(va_list list);
+/**
+ * _printf - Custom the printf function.
+ *
+ * @format: The format string
+ * @...: Optional arguments
+ *
+ * Return: The total number of characters printed.
+ */
 
-int _printf(const char *format, ...) {
-    va_list list;
-    va_start(list, format);
-    int pr_chars = 0;
+int _printf(const char *format, ...)
+{
+	va_list list;
 
-    struct convert_match m[] = {
-        {"c", printf_char},
-        {"s", printf_string},
-        {"%", printf_percent},
-        {"d", printf_decimal},
-        {"i", printf_decimal},
-        {NULL, NULL},
-    };
+	va_start(list, format);
+	int pr_chars = 0;
+	struct convert_match m[] = {
+		{"c", printf_char},
+		{"s", printf_string},
+		{"%", printf_percent},
+		{"d", printf_decimal},
+		{"i", printf_decimal},
+		{NULL, NULL},
+	};
+	int i = 0;
 
-    int i = 0;
-    while (format[i])
-    {
-            if (format[i] == '%')
-            {
-                    i++;
-                    int j = 0;
-                    while (m[j].tag)
-                    {
-                            if (*m[j].tag == format[i])
-                            {
-                                    pr_chars += m[j].f(list);
-                                    break;
-                            }
-                            j++;
-                    }
-            }
-            else
-            {
-                    putchar(format[i]);
-                    pr_chars++;
-            }
-            i++;
-    }
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			i++;
+			int j = 0;
 
-    va_end(list);
-    return pr_chars;
+			while (m[j].tag)
+			{
+				if (*m[j].tag == format[i])
+				{
+					pr_chars += m[j].f(list);
+					break;
+				}
+				j++;
+			}
+		}
+		else
+		{
+			putchar(format[i]);
+			pr_chars++;
+		}
+		i++;
+	}
+	va_end(list);
+	return (pr_chars);
 }
