@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <stdio.h>
-
+#include <unistd.h>
 
 /* main funtion*/
 int _printf(const char *format, ...);

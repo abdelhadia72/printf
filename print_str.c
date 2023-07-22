@@ -19,7 +19,7 @@ int printf_string(va_list list)
 
 	while (*str)
 	{
-		putchar(*str);
+		_putchar(*str);
 		str++;
 		num++;
 	}
