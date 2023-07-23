@@ -21,9 +21,7 @@ int _printf(const char *format, ...)
 	};
 	pr_chars = 0;
 	va_start(list, format);
-	if (!format || (format[i] == '%' && (!format[i + 1] || format[i + 1] == ' '))
-			|| format[0] == '%' && format[i + 1] == ' ' || !format[i + 2])
-		return (-1);
+
 	while (format && format[i])
 	{
 		if (format[i] == '%')
