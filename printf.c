@@ -51,7 +51,7 @@ int handle_format(const char **format, va_list list)
 	int pr_chars = 0;
 	int found_match = 0;
 
-	struct convert_match m[] = {
+	matching m[] = {
 		{"c", printf_char},
 		{"s", printf_string},
 		{"%", printf_percent},

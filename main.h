@@ -11,15 +11,16 @@
 int _printf(const char *format, ...);
 
 /**
- * struct convert_match - A structure to hold format specifiers and their handlers.
+ * struct matching - A structure to hold format specifiers and their handlers.
  * Description: this is a structure
  * @tag: The format specifier tag (e.g., "c", "s", etc.).
  * @f: The function pointer to the corresponding format specifier handler.
  */
-struct convert_match {
-        const char *tag;
-        int (*f)(va_list);
-};
+typedef struct convert_match
+{
+    const char *tag;
+    int (*f)(va_list);
+} matching;
 
 /* handle funtions */
 int printf_percent(va_list list);
