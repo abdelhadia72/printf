@@ -55,8 +55,6 @@ int handle_format(const char **format, va_list list)
 		{"c", printf_char},
 		{"s", printf_string},
 		{"%", printf_percent},
-		{"d", printf_decimal},
-		{"i", printf_decimal},
 		{"b", printf_binary},
 		{NULL, NULL},
 	};
