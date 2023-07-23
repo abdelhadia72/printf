@@ -30,18 +30,14 @@ int printf_decimal(va_list list)
 		_putchar('-');
 		count++;
 	}
-
-	/* int num_digits; */
 	num_digits = 0;
 	int temp;
-	/* temp = num; */
 
 	while (temp)
 	{
 		temp /= 10;
 		num_digits++;
 	}
-	/* int divisor; */
 	divisor = 1;
 
 	for (i = 1; i < num_digits; i++)
