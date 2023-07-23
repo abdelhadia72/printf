@@ -48,8 +48,6 @@ int _printf(const char *format, ...)
 int handle_format(const char **format, va_list list)
 {
 
-	int j;
-
 	int pr_chars = 0;
 	int found_match = 0;
 
