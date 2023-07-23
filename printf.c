@@ -60,8 +60,6 @@ int handle_format(const char **format, va_list list)
 		{"b", printf_binary},
 		{"o", printf_o},
 		{"u", printf_u},
-		{"x", printf_x},
-		{"X", printf_X},
 		{NULL, NULL},
 	};
 
