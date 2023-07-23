@@ -7,40 +7,51 @@
  * @...: Optional arguments
  * Return: The total number of characters printed.
  */
+
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int pr_chars;
+	int pr_chars = 0;
 	int i = 0;
 	int j;
+	int found_match = 0;
+
 	struct convert_match m[] = {
 		{"c", printf_char},
 		{"s", printf_string},
 		{"%", printf_percent},
 		{NULL, NULL},
 	};
-	pr_chars = 0;
+
 	va_start(list, format);
-	
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
+
+	if (!format)
 		return (-1);
 
-	while (format && format[i])
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			i++;
+			found_match = 0;
+
 			j = 0;
 			while (m[j].tag)
 			{
 				if (*m[j].tag == format[i])
 				{
 					pr_chars += m[j].f(list);
+					found_match = 1;
 					break;
 				}
 				j++;
+			}
+
+			if (!found_match)
+			{
+				_putchar('%');
+				_putchar(format[i]);
+				pr_chars += 2;
 			}
 		}
 		else
