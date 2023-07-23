@@ -5,10 +5,8 @@
  *
  * @format: The format string
  * @...: Optional arguments
- *
  * Return: The total number of characters printed.
  */
-
 int _printf(const char *format, ...)
 {
 	va_list list;
@@ -22,16 +20,16 @@ int _printf(const char *format, ...)
 		{NULL, NULL},
 	};
 	pr_chars = 0;
-
 	va_start(list, format);
-
+	if (!format || (format[i] == '%' && (!format[i + 1] || format[i + 1] == ' '))
+			|| format[0] == '%' && format[i + 1] == ' ' || !format[i + 2])
+		return (-1);
 	while (format && format[i])
 	{
 		if (format[i] == '%')
 		{
 			i++;
 			j = 0;
-
 			while (m[j].tag)
 			{
 				if (*m[j].tag == format[i])
