@@ -20,7 +20,7 @@ int printf_o(va_list list)
 		octal_digits[i++] = num % 8;
 		num /= 8;
 	}
-	
+
 	if (i == 0)
 	{
 		_putchar('0');
@@ -33,5 +33,5 @@ int printf_o(va_list list)
 		num_len++;
 	}
 
-	return num_len;
+	return (num_len);
 }

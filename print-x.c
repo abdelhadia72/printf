@@ -14,6 +14,7 @@ int printf_x(va_list list)
 	int num_len = 0;
 	char hex_digits[] = "0123456789abcdef";
 	char hex_representation[100];
+
 	int i = 0;
 
 	while (num != 0)
@@ -36,5 +37,5 @@ int printf_x(va_list list)
 
 	hex_representation[num_len] = '\0';
 
-	return num_len;
+	return (num_len);
 }

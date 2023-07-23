@@ -17,7 +17,7 @@ int printf_binary(va_list list)
 	if (num == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 
 	while (mask)
@@ -36,5 +36,5 @@ int printf_binary(va_list list)
 		mask >>= 1;
 	}
 
-	return pr_chars;
+	return (pr_chars);
 }
