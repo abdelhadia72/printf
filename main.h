@@ -9,8 +9,11 @@
 /* main funtion*/
 int _printf(const char *format, ...);
 
-
-/* struct */
+/**
+ * struct convert_match - A structure to hold format specifiers and their handlers.
+ * @tag: The format specifier tag (e.g., "c", "s", etc.).
+ * @f: The function pointer to the corresponding format specifier handler.
+ */
 struct convert_match {
         const char *tag;
         int (*f)(va_list);
@@ -30,4 +33,5 @@ int printf_X(va_list list);
 /* helper funtions */
 int _putchar(char c);
 int _strlen(char *s);
+
 #endif

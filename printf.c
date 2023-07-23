@@ -1,5 +1,6 @@
 #include "main.h"
 
+int handle_format(const char **format, va_list list);
 /**
  * _printf - Custom the printf function.
  *
@@ -12,8 +13,44 @@ int _printf(const char *format, ...)
 {
 	va_list list;
 	int pr_chars = 0;
-	int i = 0;
+
+	va_start(list, format);
+
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			pr_chars += handle_format(&format, list);
+		}
+		else
+		{
+			_putchar(*format);
+			pr_chars++;
+		}
+		format++;
+	}
+	va_end(list);
+	return (pr_chars);
+}
+
+/**
+ * handle_format - Handle the format specifier.
+ * @format: Pointer to the format string.
+ * @list: Argument list.
+ * Return: The number of characters printed for the current format specifier.
+ */
+int handle_format(const char **format, va_list list)
+{
+
 	int j;
+
+	int pr_chars = 0;
 	int found_match = 0;
 
 	struct convert_match m[] = {
@@ -23,46 +60,25 @@ int _printf(const char *format, ...)
 		{NULL, NULL},
 	};
 
-	va_start(list, format);
+	int i = 0;
 
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-
-	while (format[i])
+	while (m[i].tag)
 	{
-		if (format[i] == '%')
+		if (**format == *(m[i].tag))
 		{
-			i++;
-			found_match = 0;
-
-			j = 0;
-			while (m[j].tag)
-			{
-				if (*m[j].tag == format[i])
-				{
-					pr_chars += m[j].f(list);
-					found_match = 1;
-					break;
-				}
-				j++;
-			}
-
-			if (!found_match)
-			{
-				_putchar('%');
-				_putchar(format[i]);
-				pr_chars += 2;
-			}
-		}
-		else
-		{
-			_putchar(format[i]);
-			pr_chars++;
+			pr_chars += m[i].f(list);
+			found_match = 1;
+			break;
 		}
 		i++;
 	}
-	va_end(list);
+
+	if (!found_match)
+	{
+		_putchar('%');
+		_putchar(**format);
+		pr_chars += 2;
+	}
+
 	return (pr_chars);
 }
