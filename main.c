@@ -1,9 +1,13 @@
 #include "main.h"
-#include <stdio.h>
-#include <limits.h>
-#include <assert.h>
-int main()
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
 {
+<<<<<<< HEAD
 	int len_1 = 0, len_2 = 0;
 
 	printf("----------------------\n");
@@ -38,6 +42,10 @@ int main()
 	printf("Current length:     [%d]\n", len_2);
 	
 	return (0);
+=======
+    _printf("%b\n", 98);
+    return (0);
+>>>>>>> 4bd7cd26be9fef37402d488b6341c8bd50a273cf
 }
 
 

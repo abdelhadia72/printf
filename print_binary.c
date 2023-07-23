@@ -7,30 +7,34 @@
  *
  * Return: The number of binary digits printed.
  */
-
 int printf_binary(va_list list)
 {
     unsigned int num = va_arg(list, unsigned int);
-    int binary_digits[sizeof(unsigned int) * 8];
-    size_t i, j;
+    unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
+    int pr_chars = 0;
+    int leading_zeros = 1;
 
-    for (i = 0; i < sizeof(unsigned int) * 8; i++)
+    if (num == 0)
     {
-        binary_digits[i] = num & 1;
-        num >>= 1;
+        _putchar('0');
+        return 1;
     }
 
-    j = sizeof(unsigned int) * 8 - 1;
-
-    while (j < SIZE_MAX && binary_digits[j] == 0)
+    while (mask)
     {
-        j--;
+        if (num & mask)
+        {
+            _putchar('1');
+            leading_zeros = 0;
+        }
+        else if (!leading_zeros)
+        {
+            _putchar('0');
+        }
+
+        pr_chars++;
+        mask >>= 1;
     }
 
-    for (; j < sizeof(unsigned int) * 8; j--)
-    {
-        _putchar(binary_digits[j] + '0');
-    }
-
-    return (i);
+    return pr_chars;
 }
