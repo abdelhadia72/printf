@@ -6,36 +6,43 @@ int main()
 {
 	int len_1 = 0, len_2 = 0;
 
-	/* ===========> %d <=========== */
 	printf("----------------------\n");
+	printf("----> UNSIGNED INTEGER CASES <----\n");
 	printf("----------------------\n");
-	len_1 = printf("%d\n", 0);
-	len_2 = _printf("%d\n", 0);
-	assert(len_1 == len_2);
+	len_1 = printf("Expected output:    %u\n", 53);
+	len_2 = _printf("Current output:     %u\n", 53);
+	printf("Expected length:    [%d]\n", len_1);
+	printf("Current length:     [%d]\n", len_2);
 
-	len_2 = printf("%d\n", INT_MIN);
-	len_1 = _printf("%d\n", INT_MIN);
-	assert(len_1 == len_2);
+	len_1 = printf("Expected output:    %u\n", 0);
+	len_2 = _printf("Current output:     %u\n", 0);
+	printf("Expected length:    [%d]\n", len_1);
+	printf("Current length:     [%d]\n", len_2);
 
-	len_1 = printf("%d\n", INT_MAX);
-	len_2 = _printf("%d\n", INT_MAX);
-	assert(len_1 == len_2);
+	len_1 = printf("Expected output:    %u\n", 123456);
+	len_2 = _printf("Current output:     %u\n", 123456);
+	printf("Expected length:    [%d]\n", len_1);
+	printf("Current length:     [%d]\n", len_2);
 
-	/* ===========> %i <=========== */
-	printf("----------------------\n");
-	printf("----------------------\n");
-	len_1 = printf("%i\n", 0);
-	len_2 = _printf("%i\n", 0);
-	assert(len_1 == len_2);
+	printf("Expected length:    [%d]\n", len_1);
+	printf("Current length:     [%d]\n", len_2);
 
-	len_2 = printf("%i\n", INT_MIN);
-	len_1 = _printf("%i\n", INT_MIN);
-	assert(len_1 == len_2);
+	len_1 = printf("Expected output:    %u\n", 999999999);
+	len_2 = _printf("Current output:     %u\n", 999999999);
+	printf("Expected length:    [%d]\n", len_1);
+	printf("Current length:     [%d]\n", len_2);
 
-	len_1 = printf("%i\n", INT_MAX);
-	len_2 = _printf("%i\n", INT_MAX);
-	assert(len_1 == len_2);
-
-
+	len_1 = printf("Expected output:    %u\n", -123);
+	len_2 = _printf("Current output:     %u\n", -123);
+	printf("Expected length:    [%d]\n", len_1);
+	printf("Current length:     [%d]\n", len_2);
+	
 	return (0);
 }
+
+
+
+	
+
+	
+
