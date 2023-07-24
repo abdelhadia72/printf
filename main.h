@@ -18,8 +18,8 @@ int _printf(const char *format, ...);
  */
 typedef struct convert_match
 {
-    const char *tag;
-    int (*f)(va_list);
+	const char *tag;
+	int (*f)(va_list);
 } matching;
 
 /* handle funtions */
