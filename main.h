@@ -35,6 +35,7 @@ int printf_o(va_list list);
 int printf_X(va_list list);
 int printf_S(va_list list);
 int print_p(va_list list);
+int printf_reverse(va_list list);
 
 /* helper funtions */
 int _putchar(char c);

@@ -65,6 +65,7 @@ int handle_format(const char **format, va_list list)
 		{"X", printf_X},
 		{"u", print_unsigned},
 		{"p", print_p},
+		{"r", printf_reverse},
 		{NULL, NULL},
 	};
 
