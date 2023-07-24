@@ -50,7 +50,11 @@ int handle_format(const char **format, va_list list)
 
 	int pr_chars = 0;
 	int found_match = 0;
-
+	int flag_plus = 0;
+	int flag_space = 0;
+	int flag_hash = 0;
+	int i = 0;
+	
 	matching m[] = {
 		{"c", printf_char},
 		{"s", printf_string},
@@ -68,7 +72,17 @@ int handle_format(const char **format, va_list list)
 		{NULL, NULL},
 	};
 
-	int i = 0;
+	while (**format == '+' || **format == ' ' || **format == '#')
+	{
+		if (**format == '+')
+			flag_plus = 1;
+		else if (**format == ' ')
+			flag_space = 1;
+		else if (**format == '#')
+			flag_hash = 1;
+
+		(*format)++;
+	}
 
 	while (m[i].tag)
 	{
