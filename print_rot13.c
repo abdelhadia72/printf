@@ -20,7 +20,7 @@ int printf_rot13(va_list list)
 		j = 0;
 		while (al[j])
 		{
-			if (s[i] == al[j])
+			if (str[i] == al[j])
 			{
 				_putchar(rot[j]);
 				str_len++;
