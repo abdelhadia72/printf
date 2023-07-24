@@ -28,6 +28,7 @@ int printf_string(va_list list);
 int printf_char(va_list list);
 int printf_decimal(va_list list);
 int printf_binary(va_list list);
+int print_unsigned(va_list list);
 int printf_x(va_list list);
 int printf_u(va_list list);
 int printf_o(va_list list);
