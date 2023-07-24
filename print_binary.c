@@ -8,32 +8,33 @@
 
 int printf_binary(va_list list)
 {
-    unsigned int num = va_arg(list, unsigned int);
-    unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
-    int pr_chars = 0;
-    int leading_zeros = 1;
-    if (num == 0)
-    {
-        _putchar('0');
-        return (1);
-    }
+	unsigned int num = va_arg(list, unsigned int);
+	unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
+	int pr_chars = 0;
+	int leading_zeros = 1;
 
-    while (mask)
-    {
-        if (num & mask)
-        {
-            _putchar('1');
-            leading_zeros = 0;
-            pr_chars++;
-        }
-        else if (!leading_zeros || mask == 1)
-        {
-            _putchar('0');
-            pr_chars++;
-        }
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 
-        mask >>= 1;
-    }
+	while (mask)
+	{
+		if (num & mask)
+		{
+			_putchar('1');
+			leading_zeros = 0;
+			pr_chars++;
+		}
+		else if (!leading_zeros || mask == 1)
+		{
+			_putchar('0');
+			pr_chars++;
+		}
 
-    return (pr_chars);
+		mask >>= 1;
+	}
+
+	return (pr_chars);
 }

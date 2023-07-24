@@ -62,6 +62,7 @@ int handle_format(const char **format, va_list list)
 		{"u", printf_u},
 		{"x", printf_x},
 		{"X", printf_X},
+		{"u", print_unsigned},
 		{NULL, NULL},
 	};
 
