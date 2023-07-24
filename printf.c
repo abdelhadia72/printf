@@ -54,6 +54,7 @@ int handle_format(const char **format, va_list list)
 	matching m[] = {
 		{"c", printf_char},
 		{"s", printf_string},
+		{"S", printf_S},
 		{"%", printf_percent},
 		{"d", printf_decimal},
 		{"i", printf_decimal},
