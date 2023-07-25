@@ -18,3 +18,18 @@ $ gcc -Wall -Wextra -Werror -pedantic -std=c89 -Wno-format *.c
 $ ./a.out
 
 ```
+
+## Directory Hierarchy
+```
+|—— .gitignore
+|—— a.out
+|—— functions.c
+|—— functions2.c
+|—— functions3.c
+|—— main.c
+|—— main.h
+|—— printf.c
+|—— test
+|    |—— main.h
+|    |—— printf.c
+```
